@@ -1,0 +1,16 @@
+.dark-color {
+    background-color: #18191b;
+}
+
+.bg-color {
+    background-color: #77787a;
+}
+
+.ajuste-navbar {
+    padding: 5px 0;
+}
+
+.border-dark-color {
+  border-color: #18191b !important;
+  border-width: 3px !important;
+}
