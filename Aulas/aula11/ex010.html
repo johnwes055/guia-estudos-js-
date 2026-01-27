@@ -30,11 +30,46 @@
       </div>
     </nav>
     <!-- Fecha cabeçalho -->
-    <main>
+    <main class="text-white">
+      <h1>Sistema de multas</h1>
+      Velocidade do carro: <input type="number" name="txtvel" id="txtvel"> Km/h
+      <input type="button" value="Verificar" onclick="calcular()">
+      <div id="res">
 
+      </div>
+      <br>
+      <h2>Nacionalidade:</h2>
+      <label for="país">Qual seu país?</label>
+      <input type="text" name="país" id="país" placeholder="Alemanha">
+      <input type="button" value="Enviar" onclick="checkCountry()">
+      <div id="countryDisplay">
+
+      </div>
     </main>
-    <script>
+    <script> 
+      function calcular() {
+        const txtv = document.getElementById('txtvel')
+        const res = document.querySelector('div#res')
+        const vel = Number(txtv.value)
+        res.innerHTML = `<p>Sua velocidade atual é de <strong>${vel}Km/h</strong></p>`
+        if(vel > 60) {
+          res.innerHTML += `<p>Você está <strong>MULTADO</strong> por excesso de velocidade</p>`
+        }
+        res.innerHTML += `<p>Dirija sempre com cinto de segurança!</p>` 
+      }
+      
+      function checkCountry() {
+        const nacionality = document.querySelector('input#país').value
+        const countryDisplay = document.querySelector('div#countryDisplay')
+        countryDisplay.innerHTML = 'Obrigado por responder!'
+        if(nacionality === 'Brasil') {
+          countryDisplay.innerHTML += `<p>Bem-vindo brasileiro(a)</p>`
+        }
 
+        if(!(nacionality === 'Brasil')) {
+          countryDisplay.innerHTML += `<p>Bem-vindo estrangeiro(a)!</p>`
+        }
+      }
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
